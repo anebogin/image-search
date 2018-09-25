@@ -10,11 +10,15 @@ import styles from './Search.styles';
 import List from '../components/List';
 
 class Search extends PureComponent {
-    state = {
-        query: ''
-    }
-
     searchDelayed = debounce(query => this.search(query), 2000)
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            query: props.search.query
+        };
+    }
 
     handleOnChangeText = (query) => {
         this.setState({query}, () => {

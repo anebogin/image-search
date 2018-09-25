@@ -7,6 +7,7 @@ const MainNavigator = createStackNavigator({
     Search: { screen: Search },
     Details: { screen: Details },
 }, {
+    mode: 'modal',
     headerMode: 'none',
     initialRouteName: 'Search',
     navigationOptions: {

@@ -37,11 +37,13 @@ export const INITIAL_STATE = Immutable({
     loaded: false,
     fetching: null,
     error: null,
+    query: '',
     items: [],
 });
 
 export const searchRequest = (state, action) => {
-    const newState = state.merge({fetching: true});
+    const {query} = action;
+    const newState = state.merge({fetching: true, query});
     return newState;
 };
 export const searchSuccess = (state, action) => {

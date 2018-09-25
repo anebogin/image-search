@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import {
-    View, Text, TextInput
+    View, Text, TextInput, StatusBar
 } from 'react-native';
 import {connect} from 'react-redux';
 import debounce from 'lodash.debounce';
@@ -37,6 +37,7 @@ class Search extends PureComponent {
         const {search: {items}} = this.props;
         return (
             <View style={styles.container}>
+                <StatusBar backgroundColor="#fafafa" barStyle="dark-content" />
                 <Text style={styles.title}>Image search</Text>
                 <TextInput
                     value={query}

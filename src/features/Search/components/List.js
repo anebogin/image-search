@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {FlatList, Text} from 'react-native';
+import {FlatList} from 'react-native';
 
 import styles from './List.styles';
 import Item from './Item';
@@ -17,8 +17,18 @@ class List extends PureComponent {
         const {width, columns} = this.state;
         const columnWidth = Math.floor(width / columns);
         return (
-            <Item item={item} index={index} width={columnWidth} />
+            <Item
+                item={item}
+                index={index}
+                width={columnWidth}
+                onPress={this.handleOnPressItem}
+            />
         );
+    }
+
+    handleOnPressItem = (item) => {
+        const {onPressItem} = this.props;
+        if (typeof onPressItem === 'function') onPressItem(item);
     }
 
     handleKeyExtractor = (item, index) => index.toString()
@@ -31,7 +41,7 @@ class List extends PureComponent {
 
     render() {
         const {items} = this.props;
-        const {width, columns} = this.state;
+        const {columns} = this.state;
         return (
             <FlatList
                 onLayout={this.handleOnLayout}

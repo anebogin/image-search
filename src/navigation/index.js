@@ -1,12 +1,12 @@
 import {createStackNavigator} from 'react-navigation';
 
-// import styles from './styles/NavigationStyles';
 import {Search} from '../features/Search';
+import {Details} from '../features/Details';
 
 const MainNavigator = createStackNavigator({
     Search: { screen: Search },
+    Details: { screen: Details },
 }, {
-    // Default config for all screens
     headerMode: 'none',
     initialRouteName: 'Search',
     navigationOptions: {

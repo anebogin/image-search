@@ -5,7 +5,8 @@ import styles, {ITEM_WIDTH} from './Item.styles';
 
 class Item extends PureComponent {
     handleOnPress = () => {
-        console.log('===== press ');
+        const {onPress, item} = this.props;
+        if (typeof onPress === 'function') onPress(item);
     }
 
     render() {
@@ -25,6 +26,6 @@ class Item extends PureComponent {
             </TouchableOpacity>
         );
     }
-};
+}
 
 export default Item;

@@ -1,9 +1,6 @@
-// @flow
-
 import React, {Component} from 'react';
 import {
-    Platform, AppRegistry,
-    Text, StatusBar
+    AppRegistry,
 } from 'react-native';
 import {Provider} from 'react-redux';
 
@@ -20,7 +17,7 @@ class App extends Component {
         this.setStatusBar();
     }
 
-    getContent(): Component {
+    getContent() {
         return <RootContainer />;
     }
 
@@ -31,7 +28,7 @@ class App extends Component {
         // StatusBar.setBarStyle('light-content');
     }
 
-    render(): Component {
+    render() {
         return (
             <Provider store={store}>
                 <RootContainer />
@@ -43,6 +40,6 @@ class App extends Component {
 export default function APP() {
     AppRegistry.registerComponent(
         'app',
-        (): Component => ((Config.useReactotron) ? console.tron.overlay(App) : App)
+        () => ((Config.useReactotron) ? console.tron.overlay(App) : App)
     );
 }

@@ -1,5 +1,7 @@
 import {StyleSheet, Platform} from 'react-native';
 
+export const ITEM_WIDTH = 100;
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -7,21 +9,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#fafafa',
         paddingTop: (Platform.OS === 'ios') ? 20 : 0,
     },
-    title: {
-        textAlign: 'center',
-        fontSize: 22,
-    },
-    input: {
-        marginTop: 10,
-        paddingVertical: 7,
-        paddingHorizontal: 12,
-        borderWidth: 2,
-        borderColor: '#ccc',
-        borderRadius: 5,
-    },
     image: {
         width: '100%',
-        height: 400,
+        height: '100%'
     }
 });
 

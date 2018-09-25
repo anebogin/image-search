@@ -2,7 +2,7 @@
 import {Text} from 'react-native';
 
 Text.defaultProps.allowFontScaling = true;
-  
+
 module.exports = {
     appTitle: 'ImageSearch',
     useFixtures: false,

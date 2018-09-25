@@ -1,5 +1,7 @@
 import React, {PureComponent} from 'react';
-import {View, Text, TextInput} from 'react-native';
+import {
+    View, Text, TextInput
+} from 'react-native';
 import {connect} from 'react-redux';
 import debounce from 'lodash.debounce';
 
@@ -20,6 +22,11 @@ class Search extends PureComponent {
         });
     }
 
+    handleOnPressItem = (item) => {
+        const {navigation} = this.props;
+        navigation.navigate('Details', {item});
+    }
+
     search(query) {
         const {searchRequest} = this.props;
         searchRequest(query);
@@ -38,7 +45,7 @@ class Search extends PureComponent {
                     style={styles.input}
                     underlineColorAndroid="transparent"
                 />
-                {items.length > 0 ? <List items={items} /> : null}
+                {items.length > 0 ? <List items={items} onPressItem={this.handleOnPressItem} /> : null}
             </View>
         );
     }

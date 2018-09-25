@@ -3,9 +3,9 @@ import Api from '../api';
 import {SearchTypes} from '../redux/SearchRedux';
 import {search} from './SearchSagas';
 import ApiFixtures from '../api/fixtures';
+import Config from '../config';
 
-// const api = Api.create();
-const api = ApiFixtures;
+const api = (Config.useFixtures) ? ApiFixtures : Api.create();
 
 export default function* root() {
     yield all([

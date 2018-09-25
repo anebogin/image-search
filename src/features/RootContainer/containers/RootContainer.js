@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StatusBar} from 'react-native';
+import {View, StatusBar, Platform} from 'react-native';
 import {connect} from 'react-redux';
 
 import ReduxNavigation from '../../../navigation/ReduxNavigation';
@@ -7,7 +7,7 @@ import styles from '../styles/RootContainerStyles';
 
 const RootContainer = () => {
     StatusBar.setBarStyle('dark-content');
-    StatusBar.setBackgroundColor('#fafafa');
+    if (Platform.os === 'android') StatusBar.setBackgroundColor('#fafafa');
     return (
         <View style={styles.applicationView}>
             <ReduxNavigation />

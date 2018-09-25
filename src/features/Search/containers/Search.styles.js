@@ -1,10 +1,11 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingHorizontal: 15,
         backgroundColor: '#fafafa',
+        paddingTop: (Platform.OS === 'ios') ? 20 : 0,
     },
     title: {
         textAlign: 'center',

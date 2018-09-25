@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     },
     backButton: {
         position: 'absolute',
-        top: 15,
+        top: (Platform.OS === 'ios') ? 35 : 15,
         left: 15
     },
     backButtonText: {

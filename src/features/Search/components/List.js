@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {FlatList} from 'react-native';
+import {View, FlatList} from 'react-native';
 
 import styles from './List.styles';
 import Item from './Item';
@@ -9,7 +9,25 @@ const ITEM_WIDTH = 110;
 class List extends PureComponent {
     state = {
         width: 0,
-        columns: 2,
+        columns: null,
+    }
+
+    getContent() {
+        const {items} = this.props;
+        const {columns} = this.state;
+        if (columns) {
+            return (
+                <FlatList
+                    data={items}
+                    renderItem={this.renderItem}
+                    keyExtractor={this.handleKeyExtractor}
+                    horizontal={false}
+                    numColumns={columns || 2}
+                    key={columns}
+                />
+            );
+        }
+        return null;
     }
 
     renderItem = (props) => {
@@ -40,19 +58,13 @@ class List extends PureComponent {
     }
 
     render() {
-        const {items} = this.props;
-        const {columns} = this.state;
         return (
-            <FlatList
-                onLayout={this.handleOnLayout}
+            <View
                 style={styles.container}
-                data={items}
-                renderItem={this.renderItem}
-                keyExtractor={this.handleKeyExtractor}
-                horizontal={false}
-                numColumns={columns || 2}
-                key={columns}
-            />
+                onLayout={this.handleOnLayout}
+            >
+                {this.getContent()}
+            </View>
         );
     }
 }

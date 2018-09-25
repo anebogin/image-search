@@ -36,6 +36,7 @@ class Search extends PureComponent {
                     onChangeText={this.handleOnChangeText}
                     placeholder="Search"
                     style={styles.input}
+                    underlineColorAndroid="transparent"
                 />
                 {items.length > 0 ? <List items={items} /> : null}
             </View>

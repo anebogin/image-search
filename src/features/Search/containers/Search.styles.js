@@ -11,7 +11,11 @@ const styles = StyleSheet.create({
     },
     input: {
         marginTop: 10,
-        
+        paddingVertical: 7,
+        paddingHorizontal: 12,
+        borderWidth: 2,
+        borderColor: '#ccc',
+        borderRadius: 5,
     }
 });
 

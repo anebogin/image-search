@@ -21,7 +21,7 @@ class Item extends PureComponent {
                     resizeMode="cover"
                     style={styles.image}
                 />
-                <Text>{item.title}</Text>
+                <Text numberOfLines={1}>{item.title}</Text>
             </TouchableOpacity>
         );
     }
